@@ -4,7 +4,7 @@
 #
 Name     : libunwind
 Version  : 1.1
-Release  : 11
+Release  : 12
 URL      : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.1.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.1.tar.gz
 Summary  : libunwind generic library
