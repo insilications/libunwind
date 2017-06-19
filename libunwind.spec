@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC52B396E6874AF2 (davejwatson@fb.com)
 #
 Name     : libunwind
-Version  : 1.2
-Release  : 16
-URL      : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.tar.gz
-Source0  : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.tar.gz
-Source99 : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.tar.gz.sig
+Version  : 1.2.1
+Release  : 17
+URL      : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
+Source0  : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
+Source99 : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz.sig
 Summary  : libunwind generic library
 Group    : Development/Tools
 License  : MIT
@@ -39,16 +39,19 @@ lib components for the libunwind package.
 
 
 %prep
-%setup -q -n libunwind-1.2
+%setup -q -n libunwind-1.2.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1485381156
+export SOURCE_DATE_EPOCH=1497892070
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1485381156
+export SOURCE_DATE_EPOCH=1497892070
 rm -rf %{buildroot}
 %make_install
 
