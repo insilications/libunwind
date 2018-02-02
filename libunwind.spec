@@ -6,7 +6,7 @@
 #
 Name     : libunwind
 Version  : 1.2.1
-Release  : 17
+Release  : 18
 URL      : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
 Source99 : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz.sig
