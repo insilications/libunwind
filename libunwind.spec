@@ -6,14 +6,19 @@
 #
 Name     : libunwind
 Version  : 1.2.1
-Release  : 18
+Release  : 19
 URL      : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
 Source99 : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz.sig
-Summary  : libunwind generic library
+Summary  : libunwind base library
 Group    : Development/Tools
 License  : MIT
 Requires: libunwind-lib
+BuildRequires : gcc-dev32
+BuildRequires : gcc-libgcc32
+BuildRequires : gcc-libstdc++32
+BuildRequires : glibc-dev32
+BuildRequires : glibc-libc32
 BuildRequires : xz-dev
 
 %description
@@ -30,6 +35,16 @@ Provides: libunwind-devel
 dev components for the libunwind package.
 
 
+%package dev32
+Summary: dev32 components for the libunwind package.
+Group: Default
+Requires: libunwind-lib32
+Requires: libunwind-dev
+
+%description dev32
+dev32 components for the libunwind package.
+
+
 %package lib
 Summary: lib components for the libunwind package.
 Group: Libraries
@@ -38,21 +53,49 @@ Group: Libraries
 lib components for the libunwind package.
 
 
+%package lib32
+Summary: lib32 components for the libunwind package.
+Group: Default
+
+%description lib32
+lib32 components for the libunwind package.
+
+
 %prep
 %setup -q -n libunwind-1.2.1
+pushd ..
+cp -a libunwind-1.2.1 build32
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1497892070
+export SOURCE_DATE_EPOCH=1518615274
 %configure --disable-static
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
+pushd ../build32/
+export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+export CFLAGS="$CFLAGS -m32"
+export CXXFLAGS="$CXXFLAGS -m32"
+export LDFLAGS="$LDFLAGS -m32"
+%configure --disable-static    --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
+make  %{?_smp_mflags}
+popd
 %install
-export SOURCE_DATE_EPOCH=1497892070
+export SOURCE_DATE_EPOCH=1518615274
 rm -rf %{buildroot}
+pushd ../build32/
+%make_install32
+if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
+then
+pushd %{buildroot}/usr/lib32/pkgconfig
+for i in *.pc ; do ln -s $i 32$i ; done
+popd
+fi
+popd
 %make_install
 
 %files
@@ -73,6 +116,25 @@ rm -rf %{buildroot}
 /usr/lib64/pkgconfig/libunwind-setjmp.pc
 /usr/lib64/pkgconfig/libunwind.pc
 
+%files dev32
+%defattr(-,root,root,-)
+/usr/lib32/libunwind-coredump.so
+/usr/lib32/libunwind-generic.so
+/usr/lib32/libunwind-ptrace.so
+/usr/lib32/libunwind-setjmp.so
+/usr/lib32/libunwind-x86.so
+/usr/lib32/libunwind.so
+/usr/lib32/pkgconfig/32libunwind-coredump.pc
+/usr/lib32/pkgconfig/32libunwind-generic.pc
+/usr/lib32/pkgconfig/32libunwind-ptrace.pc
+/usr/lib32/pkgconfig/32libunwind-setjmp.pc
+/usr/lib32/pkgconfig/32libunwind.pc
+/usr/lib32/pkgconfig/libunwind-coredump.pc
+/usr/lib32/pkgconfig/libunwind-generic.pc
+/usr/lib32/pkgconfig/libunwind-ptrace.pc
+/usr/lib32/pkgconfig/libunwind-setjmp.pc
+/usr/lib32/pkgconfig/libunwind.pc
+
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libunwind-coredump.so.0
@@ -85,3 +147,16 @@ rm -rf %{buildroot}
 /usr/lib64/libunwind-x86_64.so.8.0.1
 /usr/lib64/libunwind.so.8
 /usr/lib64/libunwind.so.8.0.1
+
+%files lib32
+%defattr(-,root,root,-)
+/usr/lib32/libunwind-coredump.so.0
+/usr/lib32/libunwind-coredump.so.0.0.0
+/usr/lib32/libunwind-ptrace.so.0
+/usr/lib32/libunwind-ptrace.so.0.0.0
+/usr/lib32/libunwind-setjmp.so.0
+/usr/lib32/libunwind-setjmp.so.0.0.0
+/usr/lib32/libunwind-x86.so.8
+/usr/lib32/libunwind-x86.so.8.0.1
+/usr/lib32/libunwind.so.8
+/usr/lib32/libunwind.so.8.0.1
