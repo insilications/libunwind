@@ -6,7 +6,7 @@
 #
 Name     : libunwind
 Version  : 1.2.1
-Release  : 19
+Release  : 20
 URL      : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
 Source0  : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz
 Source99 : http://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz.sig
@@ -72,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1518615274
+export SOURCE_DATE_EPOCH=1518715889
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -85,7 +85,7 @@ export LDFLAGS="$LDFLAGS -m32"
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1518615274
+export SOURCE_DATE_EPOCH=1518715889
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
