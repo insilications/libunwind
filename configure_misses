@@ -1,7 +1,4 @@
 Configure miss: __uc_get_grs in -luca
-Configure miss: atomic_ops.h usability
-Configure miss: atomic_ops.h presence
-Configure miss: atomic_ops.h
 Configure miss: asm/ptrace_offsets.h usability
 Configure miss: asm/ptrace_offsets.h presence
 Configure miss: asm/ptrace_offsets.h
@@ -24,6 +21,7 @@ Configure miss: dlmodinfo
 Configure miss: getunwind
 Configure miss: ttrace
 Configure miss: if building with AltiVec
+Configure miss: Android
 Configure miss: whether to restrict build to remote support
 Configure miss: whether to enable C++ exception support
 Configure miss: whether to load .debug_frame sections
@@ -31,9 +29,6 @@ Configure miss: Intel compiler
 Configure miss: QCC compiler
 Configure miss: latex2man
 Configure miss: __uc_get_grs in -luca
-Configure miss: atomic_ops.h usability
-Configure miss: atomic_ops.h presence
-Configure miss: atomic_ops.h
 Configure miss: asm/ptrace_offsets.h usability
 Configure miss: asm/ptrace_offsets.h presence
 Configure miss: asm/ptrace_offsets.h
@@ -54,6 +49,7 @@ Configure miss: dlmodinfo
 Configure miss: getunwind
 Configure miss: ttrace
 Configure miss: if building with AltiVec
+Configure miss: Android
 Configure miss: whether to restrict build to remote support
 Configure miss: whether to enable C++ exception support
 Configure miss: whether to load .debug_frame sections
