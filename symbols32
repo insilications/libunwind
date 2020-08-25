@@ -88,5 +88,4 @@ libunwind.so.8:_Ux86_getcontext
 libunwind.so.8:_Ux86_is_fpreg
 libunwind.so.8:_Ux86_regname
 libunwind.so.8:_Ux86_strerror
-libunwind.so.8:backtrace
 libunwind.so.8:unw_backtrace

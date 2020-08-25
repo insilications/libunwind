@@ -38,6 +38,36 @@ Configure miss: ia64intrin.h
 Configure miss: sys/uc_access.h usability
 Configure miss: sys/uc_access.h presence
 Configure miss: sys/uc_access.h
+Configure miss: sys/elf.h usability
+Configure miss: sys/elf.h presence
+Configure miss: sys/elf.h
+Configure miss: sys/link.h usability
+Configure miss: sys/link.h presence
+Configure miss: sys/link.h
+Configure miss: struct prstatus
+Configure miss: whether PT_IO is declared
+Configure miss: dl_phdr_removals_counter
+Configure miss: dlmodinfo
+Configure miss: getunwind
+Configure miss: ttrace
+Configure miss: if building with AltiVec
+Configure miss: Android
+Configure miss: whether to restrict build to remote support
+Configure miss: whether to enable C++ exception support
+Configure miss: whether to load .debug_frame sections
+Configure miss: Intel compiler
+Configure miss: QCC compiler
+Configure miss: latex2man
+Configure miss: __uc_get_grs in -luca
+Configure miss: asm/ptrace_offsets.h usability
+Configure miss: asm/ptrace_offsets.h presence
+Configure miss: asm/ptrace_offsets.h
+Configure miss: ia64intrin.h usability
+Configure miss: ia64intrin.h presence
+Configure miss: ia64intrin.h
+Configure miss: sys/uc_access.h usability
+Configure miss: sys/uc_access.h presence
+Configure miss: sys/uc_access.h
 Configure miss: sys/elf.h presence
 Configure miss: sys/link.h usability
 Configure miss: sys/link.h presence
@@ -53,7 +83,6 @@ Configure miss: Android
 Configure miss: whether to restrict build to remote support
 Configure miss: whether to enable C++ exception support
 Configure miss: whether to load .debug_frame sections
-Configure miss: lzma_mf_is_supported in -llzma
 Configure miss: Intel compiler
 Configure miss: QCC compiler
 Configure miss: latex2man
